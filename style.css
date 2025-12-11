@@ -1,0 +1,134 @@
+/* GLOBAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+/* NAVBAR */
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(5px);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #8000ff;
+  z-index: 999;
+}
+
+/* LOGO GLITCH EFFECT */
+.glitch {
+  position: relative;
+  font-size: 32px;
+  font-weight: bold;
+  color: #a600ff;
+  text-shadow: 0 0 10px #a600ff;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+}
+
+.glitch::before {
+  color: #00fff2;
+  animation: glitch1 2s infinite;
+}
+
+.glitch::after {
+  color: #ff00ff;
+  animation: glitch2 2s infinite;
+}
+
+@keyframes glitch1 {
+  0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+  20% { clip-path: inset(30% 0 40% 0); transform: translate(2px, 2px); }
+  40% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 1px); }
+  100% { clip-path: inset(0 0 80% 0); transform: translate(0,0); }
+}
+
+@keyframes glitch2 {
+  0% { clip-path: inset(60% 0 20% 0); transform: translate(2px, -1px); }
+  25% { clip-path: inset(10% 0 60% 0); transform: translate(-2px, 2px); }
+  50% { clip-path: inset(40% 0 30% 0); transform: translate(1px, -2px); }
+  100% { clip-path: inset(60% 0 20% 0); transform: translate(0,0); }
+}
+
+/* NAVBAR LINKS */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #a600ff;
+  left: 0;
+  bottom: -3px;
+  transition: 0.3s;
+}
+
+.navbar a:hover {
+  color: #a600ff;
+  text-shadow: 0 0 5px #a600ff;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* SECTION STYLE */
+.section {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  text-align: center;
+}
+
+.section h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #a600ff;
+  text-shadow: 0 0 10px #a600ff;
+}
+
+.section p {
+  font-size: 22px;
+  color: #b9b9b9;
+}
+
+/* IMAGE */
+.image-box {
+  margin-top: 40px;
+}
+
+.image-box img {
+  width: 70%;
+  border-radius: 10px;
+  box-shadow: 0 0 25px #a600ff;
+}
